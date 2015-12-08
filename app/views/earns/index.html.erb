@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Ganancias Calculadas
+  </div>
+</div>
+
+<div class="panel panel-success">
+  <div class="panel-body">
+    <div class="row">
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Fecha de Ingreso</th>
+            <th>Fecha de Egreso</th>
+            <th>Ganancia</th>
+            <th>Eliminar</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @earns.each do |earn| %>
+            <tr>
+              <td><%= earn.fech_ing %></td>
+              <td><%= earn.fech_egr %></td>
+              <td><%= earn.valor %></td>
+              <td><%= link_to 'Eliminar', earn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+<br>
+
+  <%= link_to 'Calcular Nueva Ganancia', new_earn_path, :class => "btn btn-success" %>
+
+  </div>
+ </div>
+</div>
+

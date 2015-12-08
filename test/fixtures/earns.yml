@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fech_ing: 2015-11-30
+  fech_egr: 2015-11-30
+  valor: 1.5
+
+two:
+  fech_ing: 2015-11-30
+  fech_egr: 2015-11-30
+  valor: 1.5

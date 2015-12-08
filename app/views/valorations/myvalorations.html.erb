@@ -1,0 +1,27 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Mis valoracion de Couch
+  </div>
+</div>
+<div class="panel panel-success">
+  <div class="panel-body">
+    <div class="row">
+      <table class="table table-bordered">
+      	<% current_user.valorations.each do |valoracion| %>
+      		 <thead>
+         		 <tr>
+             		<th>Couch</th>
+              		<th>Valor</th>
+  				</tr>
+          	</thead>
+
+          	 <tbody>
+            	 <td><%=  Couch.find(valoracion.couch_id).nombre %></td>
+            	 <td><%= valoracion.valor %></td>
+       
+        	 </tbody>
+		<%end%>
+	  </table>
+	 </div>
+	</div>
+</div>

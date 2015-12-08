@@ -1,0 +1,47 @@
+<% provide(:title, "couches_index") %>
+
+
+<div class="panel-heading">
+
+        <ul class="nav nav-pills">
+        <li class="active"><a data-toggle="tab" href="#pordefecto">Vista por defecto</a></li>
+        <li><a data-toggle="tab" href="#porciudad">Vista por ciudad</a></li>
+        <li><a data-toggle="tab" href="#porfecha">Vista por fecha</a></li>
+         
+        </ul>
+
+  </div>
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Couches</h3>
+  </div>
+</div>
+
+
+
+
+                   
+        <div class="tab-content">
+        <div id="pordefecto" class="tab-pane fade in active">
+              <%= render 'por_defecto' %>   
+        </div>
+        <div id="porciudad" class="tab-pane fade">
+               <%= render 'por_ciudad' %>                      
+        </div>
+        <div id="porfecha" class="tab-pane fade">
+                <%= render 'por_fecha' %>                           
+         </div>
+                      
+      </div>
+                    
+   </div>
+
+  
+
+
+
+   </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </div>
+</nav>

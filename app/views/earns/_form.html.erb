@@ -1,0 +1,50 @@
+
+<% if user_signed_in? %>
+<div class="row">
+
+<div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Generar Ganancia</h3>
+      </div>
+      <div class="panel-body">
+
+        <%= form_for(@earn) do |f| %>
+          <form>
+        
+            <div class="form-group">
+              <%= f.label :fech_ing, 'Fecha de Ingreso' %><br />
+              <%= f.date_field :fech_ing, required: true, autofocus: true, class:"form-control" %>
+              <% if @earn.errors.messages[:fech_ing] && !@earn.errors.messages[:fech_ing].empty? %>
+                <%= @earn.errors.messages[:fech_ing].first %>
+              <%end%>
+            </div>
+             <div class="form-group">
+               <%= f.label :fech_egr, 'Fecha de Egreso' %><br />
+                 <%= f.date_field :fech_egr, required: true, autofocus: true, class:"form-control" %>
+                 <% if @earn.errors.messages[:fech_egr] && !@earn.errors.messages[:fech_egr].empty? %>
+                     <%= @earn.errors.messages[:fech_ing].first %>
+                  <%end%>
+             </div>
+             
+            <div class="form-group">
+              <%= f.submit "Ganancia", class: "btn btn-success btn-block" %>
+            </div>
+            <div class="form-group">
+              <%= link_to 'Volver a las ganancias calculadas', earns_path, class: "btn btn-success btn-block" %>
+            </div>
+        </form>
+        
+        <%end%>
+       
+      </div>
+    </div>    
+
+</div>
+
+</div>
+<%else%>
+  <script type="text/javascript">
+    window.location.href="/users/sign_in"  // put your correct path in a string here
+  </script>
+<% end %>

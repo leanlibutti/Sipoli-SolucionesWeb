@@ -1,0 +1,56 @@
+
+<style>
+
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.active a {
+	text-decoration: none;
+	padding: 0px 0px 0px 20px;
+	font-weight: bold;
+	color: white;
+}
+
+
+</style>
+
+
+
+<div class="panel-heading">
+
+        <ul class="nav nav-pills">
+        <li class="active"><a data-toggle="tab" href="#hechas">Valoraciones Hechas</a></li>
+        <li><a data-toggle="tab" href="#recibidas">Valoraciones Recibidas</a></li>
+         
+        </ul>
+
+  </div>
+
+
+
+                   
+        <div class="tab-content">
+        <div id="hechas" class="tab-pane fade in active">
+              <%= render 'validaciones_hechas' %>   
+        </div>
+        <div id="recibidas" class="tab-pane fade">
+               <%= render 'validaciones_recibidas' %>                      
+        </div>
+
+                      
+      </div>
+                    
+   </div>
+
+  
+
+
+
+   </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </div>
+</nav>

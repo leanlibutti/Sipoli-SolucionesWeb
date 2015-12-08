@@ -1,0 +1,65 @@
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Busqueda de Usuarios Registrados</h3>
+      </div>
+      <div class="panel-body">
+			<%= form_tag '/reservations/registrados', :method=>"get" do %>
+			<form>
+			<div class="form-group">
+			<%= label_tag :fechahini, 'Ingrese fecha inicial' %>
+			<%= date_field_tag :fechaini, '',required: true, autofocus: true, class:"form-control"%>
+			</div>
+			<div class="form-group">
+			<%= label_tag :fechafin, 'Ingrese fecha final'%>
+			<%= date_field_tag :fechafin, '',required: true, autofocus: true, class:"form-control"%>
+			</div>
+			<div class="form-group">
+			<%= submit_tag 'Buscar', class: "btn btn-success btn-block" %>
+			</div>
+			</form>
+			<% end %>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div class="row">
+
+<%if @registrados.count > 0%>
+	<div class="panel panel-success">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Usuarios</h3>
+	  </div>
+	</div>
+
+<%@registrados.each do |usuario|%>
+	<table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Nombre de Usuario</th>
+          <th>Fecha de Registracion</th>
+          <th>Premium</th>
+        </tr>
+        </thead>
+
+      <tbody>
+
+          <tr>
+            <td><%= usuario.name %>, <%= usuario.apellido %></td>
+            <td><%= usuario.created_at %></td>
+            <% if usuario.premium? %>
+              <td> SI </td>
+            <%else%>
+              <td>NO</td>
+            <%end%>
+          </tr>
+       </tbody>
+       </table>
+
+<%end%>
+<%end%>
+</div>
+

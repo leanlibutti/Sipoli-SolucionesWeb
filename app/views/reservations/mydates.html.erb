@@ -1,0 +1,76 @@
+ <% user= User.find (@reservation.couch.user_id) %>
+
+ <div class="row">
+
+  <div class="col-md-6 col-md-offset-3">
+  	<div class="panel panel-success">
+      <div class="panel-heading">
+    <h3 class="panel-title">Listado de Couches</h3>
+  </div>
+  		<div class="panel-body">
+    		<div class="row">
+    			<table class="table table-bordered">
+    				  <tbody>
+          					<tr>
+          						<td>Usuario: </td>
+          						<td> <%= user.name %> </td>
+          					</tr>
+          					<tr>
+          						<td>Apellido: </td>
+          						<td> <%= user.apellido %> </td>
+          					</tr>
+          					<tr>
+          						<td>Email: </td>
+          						<td> <%= user.email %> </td>
+          					</tr>
+          						<tr>
+          						<td>Telefono: </td>
+          						<td> <%= user.telefono %> </td>
+          					</tr>
+
+
+
+          			  </tbody>
+    			</table>
+    		</div>
+    	</div>
+               <div class="panel-body">
+                  <h3> Valoracion de <%= user.name %></h3>
+
+                      <% n = get_prom_user(user).to_i %>
+
+
+
+                      <% x = 1 %>
+
+                      <% loop do %>
+                        <% x += 1%>
+                        <%= link_to image_tag("star.png", alt: "New Think Tank"), 
+                        {:controller => 'couches', :action => 'index' },     
+                        {:class => 'starLogo'} %>
+                        <% break if x > n %>
+                       <% end %>
+
+                       <% if Valorationuser.where(userValora_id: current_user.id).where(user_id: user.id).count == 0 %>
+
+
+                      <%= form_for([user, user.valorationusers.build]) do |f| %>
+                        <h2>Valorar Usuario</h2>
+                        <h4>Valorar(1 a 5): <%= f.text_field :valor %> </h4>
+                        <h4><%= f.submit "Valorar" %></h4>
+                      <% end %>
+
+                       <% end %>
+
+                      <br>
+                      <br>
+
+                              
+                      <%= link_to "Volver a mis Reservas", myreservations_reservations_path,  :class => "btn btn-success" %>
+
+          </div>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Valoraciones de mis Couches
+  </div>
+</div>
+<div class="panel panel-success">
+  <div class="panel-body">
+    <div class="row">
+      <% current_user.couches.each do |couch| %>
+      <table class="table table-bordered">
+          <% couch.valorations.each do |valoracion| %>
+      		 <thead>
+         		 <tr>
+             		<th>Usuario calificador</th>
+              	<th>Nombre de Couch</th>
+                <th>Valor</th>
+  				</tr>
+          	</thead>
+
+          	 <tbody>
+            	 <td><%= User.find(valoracion.user_id).name  %></td>
+            	 <td><%= couch.nombre %></td>
+               <td><%= valoracion.valor %></td>
+       
+        	 </tbody>
+		  <%end%>
+	  </table>
+    <%end%>
+	 </div>
+	</div>
+</div>

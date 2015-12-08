@@ -1,0 +1,38 @@
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Busqueda de Couches por Lugar</h3>
+      </div>
+      <div class="panel-body">
+			<%= form_tag '/couches/searchlugar', :method=>"get" do %>
+			<form>
+			<div class="form-group">
+			<%= label_tag :contenido, 'Pais' %>
+			<%= text_field_tag :contenido, '',required: true, autofocus: true, class:"form-control"%>
+			</div>
+			<div class="form-group">
+			<%= label_tag :contenido2, 'Provincia' %>
+			<%= text_field_tag :contenido2, '', autofocus: true, class:"form-control"%>
+			</div>
+			<div class="form-group">
+			<%= label_tag :contenido3, 'Ciudad' %>
+			<%= text_field_tag :contenido3, '', autofocus: true, class:"form-control"%>
+			</div>
+			<div class="form-group">
+			<%= submit_tag 'Buscar', class: "btn btn-success btn-block" %>
+			</div>
+			</form>
+			<% end %>
+		</div>
+	</div>
+</div>
+</div>
+
+<%if (@contenido2.blank?) && (@contenido3.blank?) %>
+	<%= render 'searchpais' %>
+	<%elsif (@contenido3.blank?) %>
+		<%= render 'searchpaisprovincia'%>
+	<%else%>
+		<%= render 'searchpaisprovinciaciudad' %>
+<%end%>

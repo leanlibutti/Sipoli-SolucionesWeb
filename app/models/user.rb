@@ -25,4 +25,5 @@ class User < ActiveRecord::Base
   has_many :valorationusers, dependent: :destroy
   has_many :searches, dependent: :destroy
   has_many :valorations, dependent: :destroy
+  
 end

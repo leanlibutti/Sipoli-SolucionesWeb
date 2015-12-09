@@ -17,11 +17,11 @@ class Couch < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :category
-    has_many :reservations
-    has_many :valorations
+    has_many :reservations, dependent: :destroy
+    has_many :valorations, dependent: :destroy
     has_many :images, dependent: :destroy
 
-    scope :por_fecha,->{order ("created_at asc")}
+    scope :por_fecha,->{order ("created_at desc")}
 
     scope :por_ciudad,->{order ("ciudad asc")}
 

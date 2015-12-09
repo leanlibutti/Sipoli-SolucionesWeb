@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
             presence:true          
 
   has_many :couches, dependent: :destroy
-  scope :premium, -> {order("premium desc")}
+  scope :premium, -> {order("premium asc")}
   has_many :reservations, dependent: :destroy
   has_many :valorationusers, dependent: :destroy
   has_many :searches, dependent: :destroy
